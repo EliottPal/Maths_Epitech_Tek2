@@ -6,6 +6,7 @@
 ##
 
 import sys
+from algo import *
 
 def checkArguments():
     if len(sys.argv) < 2 or len(sys.argv) > 3:
@@ -25,9 +26,10 @@ def checkArguments():
 def main():
     nb = 42
     checkArguments()
-    print("Average return time: %s" %(nb))
-    print("Standard deviation: %s" %(nb))
-    print("Time after which 50%% of the ducks are back: %s" %(nb))
-    print("Time after which 99%% of the ducks are back: %s" %(nb))
-    print("Percentage of ducks back after 1 minute: %s" %(nb))
-    print("Percentage of ducks back after 2 minutes: %s" %(nb))
+    a = float(sys.argv[1])
+    ave = average(a)
+    print("Standard deviation: %.3f" % standard_deviation(a, ave))
+    getTime(a, 0.50)
+    getTime(a, 0.99)
+    print("Percentage of ducks back after 1 minute: %.1f%%" %(getAmount(a, 1)))
+    print("Percentage of ducks back after 2 minutes: %.1f%%" %(getAmount(a, 2)))

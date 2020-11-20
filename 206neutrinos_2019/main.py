@@ -40,6 +40,7 @@ def input_loop(values_nb, a_mean, h_mean, deviation):
 	while True:
 		signal.signal(signal.SIGINT, signal_handler)
 		sys.stdout.write("Enter next value: ")
+		sys.stdout.flush()
 		value = sys.stdin.readline()
 		### Error management
 		try:
